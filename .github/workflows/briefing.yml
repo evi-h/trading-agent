@@ -1,0 +1,35 @@
+name: Evening Briefing
+
+on:
+  schedule:
+    # Runs at 11:30 PM UTC = 6:30 PM ET (standard time)
+    # Adjust to 10:30 PM UTC during daylight saving time
+    # Cron runs every day — the app's day-of-week guard
+    # handles skipping Friday and Saturday
+    - cron: "30 23 * * 0-4"
+  workflow_dispatch: # lets you trigger manually from GitHub UI
+
+jobs:
+  run-briefing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run trading agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          FORCE_RUN: "true"
+        run: npx tsx src/index.ts
