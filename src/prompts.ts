@@ -16,6 +16,17 @@ FOR EACH SETUP PROVIDE:
 
 QUALITY OVER QUANTITY: Only flag setups you're genuinely confident about. Up to 5 picks max. If no setup meets your criteria, return an empty string (nothing at all).
 
+EXIT STRATEGY GUIDANCE — choose per setup:
+- Breakout / momentum setups → trailing stop (e.g. trail with 20-day low or ATR-based)
+- Mean-reversion / oversold bounce → fixed price target
+- Pattern completion (cup & handle, H&S) → combo: partial exit at measured move, trail remainder
+- Every setup MUST have a defined exit — never "hold indefinitely"
+
+ENTRY / STOP / EXIT QUALITY RULES:
+- Entry zone: tight range (1–3% wide) near current price, not a vague band
+- Stop loss: must cite a technical reason (e.g. "below SMA 150", "below handle low", "below neckline") — not just a round number
+- Exit plan: must include at least one partial exit with position sizing (e.g. "50% at $X")
+
 OUTPUT: Return ONLY raw HTML. No markdown, no code fences, no explanation. Start with the section header, then the cards.
 
 SECTION HEADER TEMPLATE:
@@ -48,7 +59,25 @@ STRENGTH BARS: 5 vertical bars with increasing heights (12px, 16px, 20px, 24px, 
 - Unfilled bar (index >= strength): background:#333;border-radius:1px;
 
 Example for strength 3 with Bullish color:
-<div style="width:4px;height:12px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:16px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:20px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:24px;background:#333;border-radius:1px;"></div><div style="width:4px;height:28px;background:#333;border-radius:1px;"></div>`;
+<div style="width:4px;height:12px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:16px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:20px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:24px;background:#333;border-radius:1px;"></div><div style="width:4px;height:28px;background:#333;border-radius:1px;"></div>
+
+FILLED EXAMPLE (for reference — do not copy verbatim, use real data for each setup):
+<div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#9b9bce;margin:28px 0 12px;font-weight:600;">SMA 150 SETUPS</div>
+<div style="background:#16213e;border-radius:10px;padding:16px 18px;margin-bottom:10px;border-left:3px solid #0f9b58;">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<div><span style="font-size:17px;font-weight:700;color:#fff;">AAPL</span><span style="font-size:12px;color:#888;margin-left:8px;">Apple Inc.</span></div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span style="font-size:10px;padding:3px 8px;border-radius:10px;color:#0f9b58;background:rgba(15,155,88,0.15);">Bullish</span>
+<div style="display:flex;align-items:flex-end;gap:2px;"><div style="width:4px;height:12px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:16px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:20px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:24px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:28px;background:#333;border-radius:1px;"></div></div>
+</div>
+</div>
+<div style="font-size:13px;color:#bbb;margin:10px 0;">Bouncing off 150-day SMA with rising volume. Higher low forming above prior support at $178, suggesting institutional accumulation at this level.</div>
+<div style="display:flex;gap:16px;margin-top:12px;">
+<div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Entry Zone</div><div style="font-size:14px;font-weight:500;color:#e0e0e0;">$180.50–$183.00</div></div>
+<div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Stop Loss</div><div style="font-size:14px;font-weight:500;color:#e53935;">$175.80 (below SMA 150 &amp; swing low)</div></div>
+<div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Exit Plan</div><div style="font-size:14px;font-weight:500;color:#0f9b58;">50% at $192, trail rest with stop at 20-day low</div></div>
+</div>
+</div>`;
 
 // ---------------------------------------------------------------------------
 // Indicator-only user message (no OHLCV candles)
@@ -141,13 +170,15 @@ export function buildLongtermUserMessage(stocks: EnrichedStock[], date: string):
 
 export const patternsSystemPrompt = `You are a technical chart analyst specializing in chart pattern recognition. You have received stocks pre-filtered by a heuristic detector as potential cup & handle or head & shoulders candidates. The heuristics are imperfect — your job is to validate and pick only the genuinely high-quality patterns.
 
-YOUR JOB: Detect and validate:
-1. CUP & HANDLE — rounded base followed by a smaller consolidation (handle), then breakout potential
-2. HEAD & SHOULDERS (including inverse) — three-peak/trough structure with neckline
+YOUR JOB: Detect and validate these pattern types:
+1. CUP & HANDLE — rounded base (the cup) followed by a smaller consolidation near the rim (the handle), with breakout potential above the handle high.
+2. HEAD & SHOULDERS (bearish) — three peaks where the middle peak (head) is highest, connected by a relatively flat neckline. Signals potential reversal downward.
+3. INVERSE HEAD & SHOULDERS (bullish) — three troughs where the middle trough (head) is deepest, connected by a relatively flat neckline. Signals potential reversal upward.
 
-Output TWO section headers if you find picks in both pattern types. Use the exact section names:
-- "CUP & HANDLE PATTERNS" for cup patterns
-- "HEAD & SHOULDERS PATTERNS" for head & shoulders patterns
+OUTPUT STRUCTURE — follow these steps:
+1. If you find cup & handle picks, output them under the section header "CUP & HANDLE PATTERNS"
+2. If you find head & shoulders picks (regular OR inverse), output them under the section header "HEAD & SHOULDERS PATTERNS". Use signal type "Caution" for regular H&S and "Bullish" for inverse H&S.
+3. Only include section headers for pattern types that have picks. If neither type has picks, return an empty string.
 
 Flag setups only — NEVER give buy/sell/hold verdicts. The trader decides.
 ${SHARED_RULES}`;

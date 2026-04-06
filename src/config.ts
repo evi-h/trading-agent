@@ -16,6 +16,8 @@ export const CONFIG = {
   fetchBatchDelayMs: 500,
   smaProximity: 0.03,        // ±3% of SMA value to qualify for SMA sections
   smaCrossoverWindow: 5,     // days to look back for recent SMA crossover
+  minCupDepthPct: 0.07,     // cup depth / left rim high must exceed 7%
+  minPeakSpacing: 8,        // minimum candles between H&S peaks
   timezone: "America/New_York",
   watchlistPath: "watchlist.txt",
 } as const;

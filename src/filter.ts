@@ -43,6 +43,9 @@ function looksLikeCupAndHandle(stock: EnrichedStock): boolean {
 
   if (cupDepth <= 0) return false;
 
+  // Cup must be meaningfully deep (not a trivial 1-2% wobble)
+  if (cupDepth / leftRimHigh < CONFIG.minCupDepthPct) return false;
+
   // Price must have recovered ≥80% of the cup depth after the bottom
   const postCupHigh = Math.max(...closes.slice(minIdx));
   const recovery = (postCupHigh - cupBottom) / cupDepth;
@@ -66,34 +69,93 @@ function looksLikeCupAndHandle(stock: EnrichedStock): boolean {
 }
 
 /**
- * Head & shoulders heuristic: find three local maxima in the last 60 candles
- * where the middle peak is higher than both flanking peaks.
+ * Collect local extrema (maxima or minima) from a close array using a 5-candle window.
+ */
+function findLocalExtrema(
+  closes: number[],
+  type: "max" | "min"
+): Array<{ idx: number; val: number }> {
+  const extrema: Array<{ idx: number; val: number }> = [];
+  const compareFn = type === "max" ? Math.max : Math.min;
+
+  for (let i = 5; i < closes.length - 5; i++) {
+    const window = closes.slice(i - 5, i + 6);
+    if (closes[i] === compareFn(...window)) {
+      extrema.push({ idx: i, val: closes[i] });
+    }
+  }
+  return extrema;
+}
+
+/**
+ * Head & shoulders heuristic: three peaks where the middle is highest,
+ * with adequate spacing between peaks and a relatively flat neckline.
  */
 function looksLikeHeadAndShoulders(stock: EnrichedStock): boolean {
   const candles = stock.candles.slice(-60);
   if (candles.length < 40) return false;
 
   const closes = candles.map((c) => c.close);
-
-  // Collect local maxima (higher than neighbors within a 5-candle window)
-  const peaks: Array<{ idx: number; val: number }> = [];
-  for (let i = 5; i < closes.length - 5; i++) {
-    const window = closes.slice(i - 5, i + 6);
-    if (closes[i] === Math.max(...window)) {
-      peaks.push({ idx: i, val: closes[i] });
-    }
-  }
+  const peaks = findLocalExtrema(closes, "max");
 
   if (peaks.length < 3) return false;
 
-  // Check any triplet where the middle is higher than both flanking peaks
   for (let i = 0; i < peaks.length - 2; i++) {
     const left = peaks[i];
     const head = peaks[i + 1];
     const right = peaks[i + 2];
-    if (head.val > left.val && head.val > right.val) {
-      return true;
-    }
+
+    if (!(head.val > left.val && head.val > right.val)) continue;
+
+    // Peaks must be adequately spaced in time
+    if (head.idx - left.idx < CONFIG.minPeakSpacing) continue;
+    if (right.idx - head.idx < CONFIG.minPeakSpacing) continue;
+
+    // Find neckline troughs between left-head and head-right
+    const trough1 = Math.min(...closes.slice(left.idx, head.idx + 1));
+    const trough2 = Math.min(...closes.slice(head.idx, right.idx + 1));
+
+    // Neckline must be relatively flat (troughs within 5% of head value)
+    if (Math.abs(trough1 - trough2) > head.val * 0.05) continue;
+
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Inverse head & shoulders: three troughs where the middle is lowest,
+ * with adequate spacing and a relatively flat neckline. Bullish reversal pattern.
+ */
+function looksLikeInverseHeadAndShoulders(stock: EnrichedStock): boolean {
+  const candles = stock.candles.slice(-60);
+  if (candles.length < 40) return false;
+
+  const closes = candles.map((c) => c.close);
+  const troughs = findLocalExtrema(closes, "min");
+
+  if (troughs.length < 3) return false;
+
+  for (let i = 0; i < troughs.length - 2; i++) {
+    const left = troughs[i];
+    const head = troughs[i + 1];
+    const right = troughs[i + 2];
+
+    if (!(head.val < left.val && head.val < right.val)) continue;
+
+    // Troughs must be adequately spaced in time
+    if (head.idx - left.idx < CONFIG.minPeakSpacing) continue;
+    if (right.idx - head.idx < CONFIG.minPeakSpacing) continue;
+
+    // Find neckline peaks between left-head and head-right
+    const peak1 = Math.max(...closes.slice(left.idx, head.idx + 1));
+    const peak2 = Math.max(...closes.slice(head.idx, right.idx + 1));
+
+    // Neckline must be relatively flat (peaks within 5% of higher peak)
+    const higherPeak = Math.max(peak1, peak2);
+    if (Math.abs(peak1 - peak2) > higherPeak * 0.05) continue;
+
+    return true;
   }
   return false;
 }
@@ -146,7 +208,7 @@ export function filterStocks(stocks: EnrichedStock[]): Map<SectionName, Enriched
     }
 
     // Pattern candidates
-    if (looksLikeCupAndHandle(stock) || looksLikeHeadAndShoulders(stock)) {
+    if (looksLikeCupAndHandle(stock) || looksLikeHeadAndShoulders(stock) || looksLikeInverseHeadAndShoulders(stock)) {
       result.get("patterns")!.push(stock);
     }
 
