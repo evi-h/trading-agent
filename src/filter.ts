@@ -13,31 +13,56 @@ function crossedAboveSma(stock: EnrichedStock, smaValue: number, window: number)
 }
 
 /**
- * Cup heuristic: find the lowest close in the last 40 candles, check it's
- * not at either edge (≥15 candles from both ends) and price has recovered
- * ≥80% of its drop from the prior high back toward it.
+ * Cup & handle heuristic:
+ * 1. Cup: rounded bottom in the last 60 candles — lowest close is not at edges,
+ *    and price recovered ≥80% of the drop from the prior high.
+ * 2. Handle: after the recovery, a small pullback (5–15% of the cup depth)
+ *    that doesn't fall below 50% of the cup. The handle should be in the
+ *    last ~10 candles (recent consolidation near the prior high).
  */
-function looksLikeCup(stock: EnrichedStock): boolean {
-  const candles = stock.candles.slice(-40);
-  if (candles.length < 30) return false;
+function looksLikeCupAndHandle(stock: EnrichedStock): boolean {
+  const candles = stock.candles.slice(-60);
+  if (candles.length < 35) return false;
 
   const closes = candles.map((c) => c.close);
+
+  // --- Cup detection ---
+  // Find the cup bottom (lowest close), excluding the last 10 candles (handle zone)
+  const cupZone = closes.slice(0, closes.length - 10);
   let minIdx = 0;
-  for (let i = 1; i < closes.length; i++) {
-    if (closes[i] < closes[minIdx]) minIdx = i;
+  for (let i = 1; i < cupZone.length; i++) {
+    if (cupZone[i] < cupZone[minIdx]) minIdx = i;
   }
 
-  // Bottom must not be at the edges
-  if (minIdx < 15 || minIdx > closes.length - 10) return false;
+  // Bottom must not be at the very start (need a left rim)
+  if (minIdx < 10) return false;
 
-  const priorHigh = Math.max(...closes.slice(0, minIdx));
-  const bottom = closes[minIdx];
-  const current = closes[closes.length - 1];
-  const drop = priorHigh - bottom;
+  const leftRimHigh = Math.max(...closes.slice(0, minIdx));
+  const cupBottom = closes[minIdx];
+  const cupDepth = leftRimHigh - cupBottom;
 
-  if (drop <= 0) return false;
-  const recovery = (current - bottom) / drop;
-  return recovery >= 0.8;
+  if (cupDepth <= 0) return false;
+
+  // Price must have recovered ≥80% of the cup depth after the bottom
+  const postCupHigh = Math.max(...closes.slice(minIdx));
+  const recovery = (postCupHigh - cupBottom) / cupDepth;
+  if (recovery < 0.8) return false;
+
+  // --- Handle detection ---
+  // Handle = last ~10 candles, should show a small dip from the post-cup high
+  const handleZone = closes.slice(-10);
+  const handleLow = Math.min(...handleZone);
+  const handleDip = postCupHigh - handleLow;
+
+  // Handle dip should be between 5% and 50% of cup depth (shallow pullback)
+  const dipRatio = handleDip / cupDepth;
+  if (dipRatio < 0.05 || dipRatio > 0.5) return false;
+
+  // Handle low must stay above the midpoint of the cup
+  const cupMidpoint = cupBottom + cupDepth * 0.5;
+  if (handleLow < cupMidpoint) return false;
+
+  return true;
 }
 
 /**
@@ -121,7 +146,7 @@ export function filterStocks(stocks: EnrichedStock[]): Map<SectionName, Enriched
     }
 
     // Pattern candidates
-    if (looksLikeCup(stock) || looksLikeHeadAndShoulders(stock)) {
+    if (looksLikeCupAndHandle(stock) || looksLikeHeadAndShoulders(stock)) {
       result.get("patterns")!.push(stock);
     }
 
