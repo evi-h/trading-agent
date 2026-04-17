@@ -125,7 +125,7 @@ Each call gets a section-specific system prompt, but the output rules are the sa
 ### Setup Cards
 - Background `#16213e`, border-radius 10px, padding 16px 18px
 - **Left border (3px)** color-coded by signal type:
-  - Green `#0f9b58` = Bullish
+  - Green `#2d8659` = Bullish
   - Yellow `#f9a825` = Forming / Watch
   - Red `#e53935` = Caution / Overbought
 - **Top row**: Ticker (17px, bold, white) + company name (12px, muted) on left. Signal badge + strength meter on right.
