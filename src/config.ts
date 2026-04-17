@@ -89,6 +89,7 @@ export interface IndicatorResult {
 
 export interface EnrichedStock extends StockData {
   indicators: IndicatorResult;
+  cupHandleTarget?: number;   // measured move target price (cup & handle only)
 }
 
 export interface BriefingMeta {

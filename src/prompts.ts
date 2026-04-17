@@ -49,6 +49,9 @@ SETUP CARD TEMPLATE (replace all {placeholders}):
 </div>
 </div>
 
+OPTIONAL "MEASURED TARGET" ROW — include ONLY for cup & handle picks, insert between the description div and the 3-column row:
+<div style="font-size:11px;color:#9b9bce;background:rgba(155,155,206,0.08);padding:6px 10px;border-radius:6px;margin:10px 0;display:flex;align-items:center;gap:6px;"><span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#9b9bce;font-weight:600;">Measured Target</span><span style="color:#fff;font-weight:500;">{target}</span><span style="color:#888;">({upside}% upside)</span></div>
+
 COLOR MAPPING:
 - Bullish: borderColor="#0f9b58", signalColor="#0f9b58", signalColorBg="rgba(15,155,88,0.15)"
 - Forming: borderColor="#f9a825", signalColor="#f9a825", signalColorBg="rgba(249,168,37,0.15)"
@@ -76,6 +79,25 @@ FILLED EXAMPLE (for reference — do not copy verbatim, use real data for each s
 <div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Entry Zone</div><div style="font-size:14px;font-weight:500;color:#e0e0e0;">$180.50–$183.00</div></div>
 <div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Stop Loss</div><div style="font-size:14px;font-weight:500;color:#e53935;">$175.80 (below SMA 150 &amp; swing low)</div></div>
 <div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Exit Plan</div><div style="font-size:14px;font-weight:500;color:#0f9b58;">50% at $192, trail rest with stop at 20-day low</div></div>
+</div>
+</div>
+
+FILLED EXAMPLE — CUP & HANDLE with Measured Target row (for reference — do not copy verbatim):
+<div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#9b9bce;margin:28px 0 12px;font-weight:600;">CUP &amp; HANDLE PATTERNS</div>
+<div style="background:#16213e;border-radius:10px;padding:16px 18px;margin-bottom:10px;border-left:3px solid #0f9b58;">
+<div style="display:flex;justify-content:space-between;align-items:center;">
+<div><span style="font-size:17px;font-weight:700;color:#fff;">MSFT</span><span style="font-size:12px;color:#888;margin-left:8px;">Microsoft Corp.</span></div>
+<div style="display:flex;align-items:center;gap:8px;">
+<span style="font-size:10px;padding:3px 8px;border-radius:10px;color:#0f9b58;background:rgba(15,155,88,0.15);">Bullish</span>
+<div style="display:flex;align-items:flex-end;gap:2px;"><div style="width:4px;height:12px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:16px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:20px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:24px;background:#0f9b58;border-radius:1px;"></div><div style="width:4px;height:28px;background:#333;border-radius:1px;"></div></div>
+</div>
+</div>
+<div style="font-size:13px;color:#bbb;margin:10px 0;">Clean 14% cup formed over 8 weeks with tight 4% handle near the rim. Volume dried up in the handle, suggesting base completion. Breakout above $425 would confirm the pattern.</div>
+<div style="font-size:11px;color:#9b9bce;background:rgba(155,155,206,0.08);padding:6px 10px;border-radius:6px;margin:10px 0;display:flex;align-items:center;gap:6px;"><span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#9b9bce;font-weight:600;">Measured Target</span><span style="color:#fff;font-weight:500;">$485.50</span><span style="color:#888;">(+14.2% upside)</span></div>
+<div style="display:flex;gap:16px;margin-top:12px;">
+<div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Entry Zone</div><div style="font-size:14px;font-weight:500;color:#e0e0e0;">$422.00–$427.00</div></div>
+<div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Stop Loss</div><div style="font-size:14px;font-weight:500;color:#e53935;">$410.50 (below handle low)</div></div>
+<div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Exit Plan</div><div style="font-size:14px;font-weight:500;color:#0f9b58;">50% at measured target $485.50, trail rest with stop at 20-day low</div></div>
 </div>
 </div>`;
 
@@ -180,6 +202,12 @@ OUTPUT STRUCTURE — follow these steps:
 2. If you find head & shoulders picks (regular OR inverse), output them under the section header "HEAD & SHOULDERS PATTERNS". Use signal type "Caution" for regular H&S and "Bullish" for inverse H&S.
 3. Only include section headers for pattern types that have picks. If neither type has picks, return an empty string.
 
+MEASURED TARGET (cup & handle picks only):
+- The user message provides a "Cup & Handle Measured Target" line for qualifying cup picks — this is computed by measuring cup depth and projecting it above the breakout line.
+- For every cup & handle pick, insert the OPTIONAL MEASURED TARGET ROW (see template below) into the card between the description and the 3-column row.
+- Reference the measured target price in your Exit Plan (e.g. "50% at measured target $X, trail rest with stop at 20-day low").
+- Do NOT include this row for head & shoulders picks.
+
 Flag setups only — NEVER give buy/sell/hold verdicts. The trader decides.
 ${SHARED_RULES}`;
 
@@ -198,6 +226,11 @@ export function buildPatternsUserMessage(stocks: EnrichedStock[], date: string):
     lines.push(`Sector: ${s.sector} | Price: $${s.currentPrice.toFixed(2)}`);
     lines.push(`RSI(14): ${ind.rsi} | SMA150: ${ind.sma150 ? `$${ind.sma150.toFixed(2)} (${ind.priceVsSma150})` : "N/A"} | SMA200: ${ind.sma200 ? `$${ind.sma200.toFixed(2)} (${ind.priceVsSma200})` : "N/A"}`);
     lines.push(`52W: $${s.low52w.toFixed(2)}–$${s.high52w.toFixed(2)} | Position: ${(ind.weekPosition52 * 100).toFixed(0)}%`);
+
+    if (s.cupHandleTarget !== undefined) {
+      const upside = ((s.cupHandleTarget - s.currentPrice) / s.currentPrice) * 100;
+      lines.push(`Cup & Handle Measured Target: $${s.cupHandleTarget.toFixed(2)} (${upside >= 0 ? "+" : ""}${upside.toFixed(1)}% from current)`);
+    }
 
     const recentCandles = s.candles.slice(-90);
     lines.push("");

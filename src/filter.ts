@@ -19,10 +19,13 @@ function crossedAboveSma(stock: EnrichedStock, smaValue: number, window: number)
  * 2. Handle: after the recovery, a small pullback (5–15% of the cup depth)
  *    that doesn't fall below 50% of the cup. The handle should be in the
  *    last ~10 candles (recent consolidation near the prior high).
+ *
+ * Returns the measured move target price (leftRimHigh + cupDepth) if the
+ * pattern matches, or null if it doesn't.
  */
-function looksLikeCupAndHandle(stock: EnrichedStock): boolean {
+function looksLikeCupAndHandle(stock: EnrichedStock): number | null {
   const candles = stock.candles.slice(-60);
-  if (candles.length < 35) return false;
+  if (candles.length < 35) return null;
 
   const closes = candles.map((c) => c.close);
 
@@ -35,21 +38,21 @@ function looksLikeCupAndHandle(stock: EnrichedStock): boolean {
   }
 
   // Bottom must not be at the very start (need a left rim)
-  if (minIdx < 10) return false;
+  if (minIdx < 10) return null;
 
   const leftRimHigh = Math.max(...closes.slice(0, minIdx));
   const cupBottom = closes[minIdx];
   const cupDepth = leftRimHigh - cupBottom;
 
-  if (cupDepth <= 0) return false;
+  if (cupDepth <= 0) return null;
 
   // Cup must be meaningfully deep (not a trivial 1-2% wobble)
-  if (cupDepth / leftRimHigh < CONFIG.minCupDepthPct) return false;
+  if (cupDepth / leftRimHigh < CONFIG.minCupDepthPct) return null;
 
   // Price must have recovered ≥80% of the cup depth after the bottom
   const postCupHigh = Math.max(...closes.slice(minIdx));
   const recovery = (postCupHigh - cupBottom) / cupDepth;
-  if (recovery < 0.8) return false;
+  if (recovery < 0.8) return null;
 
   // --- Handle detection ---
   // Handle = last ~10 candles, should show a small dip from the post-cup high
@@ -59,13 +62,15 @@ function looksLikeCupAndHandle(stock: EnrichedStock): boolean {
 
   // Handle dip should be between 5% and 50% of cup depth (shallow pullback)
   const dipRatio = handleDip / cupDepth;
-  if (dipRatio < 0.05 || dipRatio > 0.5) return false;
+  if (dipRatio < 0.05 || dipRatio > 0.5) return null;
 
   // Handle low must stay above the midpoint of the cup
   const cupMidpoint = cupBottom + cupDepth * 0.5;
-  if (handleLow < cupMidpoint) return false;
+  if (handleLow < cupMidpoint) return null;
 
-  return true;
+  // Measured move target: cup depth projected above the rim (breakout line)
+  const target = leftRimHigh + cupDepth;
+  return Math.round(target * 100) / 100;
 }
 
 /**
@@ -208,7 +213,13 @@ export function filterStocks(stocks: EnrichedStock[]): Map<SectionName, Enriched
     }
 
     // Pattern candidates
-    if (looksLikeCupAndHandle(stock) || looksLikeHeadAndShoulders(stock) || looksLikeInverseHeadAndShoulders(stock)) {
+    const cupTarget = looksLikeCupAndHandle(stock);
+    const isHS = looksLikeHeadAndShoulders(stock);
+    const isInverseHS = looksLikeInverseHeadAndShoulders(stock);
+    if (cupTarget !== null || isHS || isInverseHS) {
+      if (cupTarget !== null) {
+        stock.cupHandleTarget = cupTarget;
+      }
       result.get("patterns")!.push(stock);
     }
 
