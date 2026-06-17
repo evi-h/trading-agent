@@ -8,7 +8,7 @@ Build a Node.js / TypeScript agent that runs after market close (Sun–Thu eveni
 ## Tech Stack
 - **Runtime**: Node.js / TypeScript
 - **Data source**: Yahoo Finance (`yahoo-finance2` npm package) — free, no API key
-- **AI**: Claude API via `@anthropic-ai/sdk` (use `claude-sonnet-4-20250514`)
+- **AI**: Claude API via `@anthropic-ai/sdk` (use `claude-opus-4-8`)
 - **Email**: Gmail SMTP with App Password (`nodemailer`)
 
 ---

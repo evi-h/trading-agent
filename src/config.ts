@@ -10,7 +10,7 @@ export const CONFIG = {
   smaLong: 200,
   historicalDays: 250,
   minAvgVolume: 500_000,
-  claudeModel: "claude-sonnet-4-20250514" as const,
+  claudeModel: "claude-opus-4-8" as const,
   claudeMaxTokens: 16_000,
   fetchBatchSize: 5,
   fetchBatchDelayMs: 500,
