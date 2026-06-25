@@ -31,6 +31,9 @@ function shouldRun(): boolean {
 async function main(): Promise<void> {
   console.log("=== Trading Agent ===\n");
 
+  const k = process.env.ANTHROPIC_API_KEY ?? "";
+  console.log(`API key fingerprint: ${k.slice(0, 7)}...${k.slice(-4)} (len=${k.length})  model=${CONFIG.claudeModel}`);
+
   if (!shouldRun()) {
     process.exit(0);
   }
