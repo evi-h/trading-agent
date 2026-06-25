@@ -10,7 +10,7 @@
     "dry-run": "DRY_RUN=true FORCE_RUN=true tsx src/index.ts"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.39.0",
+    "@anthropic-ai/sdk": "^0.106.0",
     "dotenv": "^16.4.7",
     "nodemailer": "^6.9.16"
   },
