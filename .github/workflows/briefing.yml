@@ -24,6 +24,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Diagnostic — direct curl to Anthropic API
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          echo "Testing claude-opus-4-8 with curl from the runner..."
+          HTTP_STATUS=$(curl -s -o /tmp/anthropic_response.json -w "%{http_code}" https://api.anthropic.com/v1/messages \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "content-type: application/json" \
+            -d '{"model":"claude-opus-4-8","max_tokens":10,"messages":[{"role":"user","content":"hi"}]}')
+          echo "HTTP status: $HTTP_STATUS"
+          echo "Response body:"
+          cat /tmp/anthropic_response.json
+          echo ""
+
       - name: Run trading agent
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
