@@ -20,6 +20,10 @@ export const CONFIG = {
   minPeakSpacing: 8,        // minimum candles between H&S peaks
   timezone: "America/New_York",
   watchlistPath: "watchlist.txt",
+  // Performance tracker retention — these bounds keep picks.json flat forever
+  trackerMaxOpenTradingDays: 30,    // trading days before an unresolved pick expires
+  trackerMaxOpenCalendarDays: 60,   // calendar backstop (covers tickers dropped from watchlist)
+  trackerClosedRetentionDays: 90,   // closed-pick detail kept this long, then folded into stats
   // Tickers shown in the market snapshot strip at the top of the email,
   // in display order. Skipped silently if not in the watchlist / not fetched.
   marketSnapshot: [
@@ -51,6 +55,7 @@ export const ENV = {
   get emailTo() { return requireEnv("EMAIL_TO"); },
   get forceRun() { return process.env.FORCE_RUN === "true"; },
   get dryRun() { return process.env.DRY_RUN === "true"; },
+  get trackerDataDir() { return process.env.TRACKER_DATA_DIR ?? "data"; },
 };
 
 // --- Types ---

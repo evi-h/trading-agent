@@ -52,7 +52,8 @@ function buildMarketStrip(snapshot: MarketSnapshotEntry[]): string {
 export function buildEmailHtml(
   sections: Map<SectionName, string>,
   meta: BriefingMeta,
-  snapshot: MarketSnapshotEntry[] = []
+  snapshot: MarketSnapshotEntry[] = [],
+  performanceHtml: string = ""
 ): { html: string; setupCount: number } {
   const sectionFragments: string[] = [];
   let setupCount = 0;
@@ -84,6 +85,9 @@ export function buildEmailHtml(
 ${buildMarketStrip(snapshot)}
   <!-- ANALYSIS -->
   ${innerHtml}
+
+  <!-- PICK PERFORMANCE -->
+  ${performanceHtml}
 
   <!-- FOOTER -->
   <div style="text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid #333;">

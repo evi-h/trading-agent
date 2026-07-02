@@ -7,6 +7,7 @@ import { analyzeStocks } from "./analyzer.js";
 import { buildMarketContext } from "./prompts.js";
 import { buildEmailHtml } from "./email-builder.js";
 import { sendBriefing } from "./emailer.js";
+import { loadTracker, saveTracker, updateTracker, extractPicks, recordPicks, buildPerformanceSection } from "./tracker.js";
 
 function shouldRun(): boolean {
   if (ENV.forceRun) {
@@ -76,6 +77,16 @@ async function main(): Promise<void> {
   console.log("\nAnalyzing with Claude...");
   const sections = await analyzeStocks(filtered, date, marketContext);
 
+  // 5. Performance tracker: re-price open picks, close resolved ones,
+  //    record tonight's picks, and build the email section
+  const todayISO = new Intl.DateTimeFormat("en-CA", { timeZone: CONFIG.timezone }).format(now);
+  const { state: trackerState, stats: trackerStats } = loadTracker();
+  updateTracker(trackerState, trackerStats, stocks, todayISO);
+  const performanceHtml = buildPerformanceSection(trackerState, todayISO);
+  const newPicks = extractPicks(sections, stocks, todayISO);
+  const added = recordPicks(trackerState, newPicks);
+  console.log(`  Tracker: ${trackerState.open.length} open picks (${added} new), ${trackerState.closed.length} closed in window`);
+
   const generationTimeSeconds = (Date.now() - startTime) / 1000;
 
   const meta: BriefingMeta = {
@@ -84,11 +95,16 @@ async function main(): Promise<void> {
     generationTimeSeconds,
   };
 
-  // 5. Assemble email HTML
-  const { html: fullHtml, setupCount } = buildEmailHtml(sections, meta, snapshot);
+  // 6. Assemble email HTML
+  const { html: fullHtml, setupCount } = buildEmailHtml(sections, meta, snapshot, performanceHtml);
   meta.setupCount = setupCount;
 
-  // 6. Send or print
+  // Persist tracker state (skipped on dry runs so testing stays idempotent)
+  if (!ENV.dryRun) {
+    saveTracker(trackerState, trackerStats);
+  }
+
+  // 7. Send or print
   if (ENV.dryRun) {
     console.log("\n--- DRY RUN: HTML Output ---\n");
     console.log(fullHtml);
