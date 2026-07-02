@@ -25,10 +25,12 @@ async function callClaude(
   client: Anthropic,
   section: SectionName,
   stocks: EnrichedStock[],
-  date: string
+  date: string,
+  marketContext: string
 ): Promise<string> {
   const { systemPrompt, buildUserMessage } = SECTION_CONFIGS[section];
-  const userMessage = buildUserMessage(stocks, date);
+  const body = buildUserMessage(stocks, date);
+  const userMessage = marketContext ? `${marketContext}\n\n${body}` : body;
 
   console.log(`  [${section}] ${stocks.length} candidates → Claude (${(userMessage.length / 1000).toFixed(0)}K chars)...`);
 
@@ -74,7 +76,8 @@ function failureFragment(section: SectionName): string {
 
 export async function analyzeStocks(
   filtered: Map<SectionName, EnrichedStock[]>,
-  date: string
+  date: string,
+  marketContext: string
 ): Promise<Map<SectionName, string>> {
   const client = new Anthropic({ apiKey: ENV.anthropicApiKey });
 
@@ -84,7 +87,7 @@ export async function analyzeStocks(
     .filter(([, stocks]) => stocks.length > 0);
 
   const results = await Promise.allSettled(
-    entries.map(([section, stocks]) => callClaude(client, section, stocks, date))
+    entries.map(([section, stocks]) => callClaude(client, section, stocks, date, marketContext))
   );
 
   const sections = new Map<SectionName, string>();

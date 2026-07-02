@@ -16,6 +16,8 @@ FOR EACH SETUP PROVIDE:
 
 QUALITY OVER QUANTITY: Only flag setups you're genuinely confident about. Up to 5 picks max. If no setup meets your criteria, return an empty string (nothing at all).
 
+MARKET CONTEXT: The user message may begin with a MARKET CONTEXT block summarizing index trends. Calibrate your calls to the tape — when major indexes are below key SMAs or momentum is negative, favor "Forming" over "Bullish", demand stronger confirmation, and prefer tighter stops. In a strong tape, breakout setups deserve more benefit of the doubt.
+
 EXIT STRATEGY GUIDANCE — choose per setup:
 - Breakout / momentum setups → trailing stop (e.g. trail with 20-day low or ATR-based)
 - Mean-reversion / oversold bounce → fixed price target
@@ -35,7 +37,7 @@ SECTION HEADER TEMPLATE:
 SETUP CARD TEMPLATE (replace all {placeholders}):
 <div style="background:#16213e;border-radius:10px;padding:16px 18px;margin-bottom:10px;border-left:3px solid {borderColor};">
 <div style="display:flex;justify-content:space-between;align-items:center;">
-<div><span style="font-size:17px;font-weight:700;color:#fff;">{TICKER}</span><span style="font-size:12px;color:#888;margin-left:8px;">{Company Name}</span></div>
+<div><span style="font-size:17px;font-weight:700;color:#fff;">{TICKER}</span><span style="font-size:12px;color:#888;margin-left:8px;">{Company Name}</span><div style="font-size:12px;color:#bbb;margin-top:2px;">{price} <span style="color:{changeColor};">{change1d}</span></div></div>
 <div style="display:flex;align-items:center;gap:8px;">
 <span style="font-size:10px;padding:3px 8px;border-radius:10px;color:{signalColor};background:{signalColorBg};">{SignalType}</span>
 <div style="display:flex;align-items:flex-end;gap:2px;">{strengthBars}</div>
@@ -48,6 +50,12 @@ SETUP CARD TEMPLATE (replace all {placeholders}):
 <div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Exit Plan</div><div style="font-size:14px;font-weight:500;color:#2d8659;">{exitPlan}</div></div>
 </div>
 </div>
+
+PRICE ROW (under ticker/company): {price} = current price from the data, {change1d} = signed 1-day change (e.g. "+1.3%"). changeColor: "#2d8659" when positive, "#e57373" when negative, "#888" when flat.
+
+OPTIONAL "R:R" CHIP — include when the exit plan has a concrete first price target. Insert directly after the top row div (before the description):
+<div style="display:flex;gap:6px;margin:10px 0 0;"><span style="font-size:11px;padding:2px 8px;border-radius:6px;background:rgba(155,155,206,0.12);color:#9b9bce;">R:R {ratio}:1</span></div>
+Compute {ratio} = (first target − entry midpoint) / (entry midpoint − stop), rounded to 1 decimal. Skip the chip for pure trailing-stop exits where no target price exists.
 
 OPTIONAL "MEASURED TARGET" ROW — include ONLY for cup & handle picks, insert between the description div and the 3-column row:
 <div style="font-size:11px;color:#9b9bce;background:rgba(155,155,206,0.08);padding:6px 10px;border-radius:6px;margin:10px 0;display:flex;align-items:center;gap:6px;"><span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#9b9bce;font-weight:600;">Measured Target</span><span style="color:#fff;font-weight:500;">{target}</span><span style="color:#888;">({upside}% upside)</span></div>
@@ -68,12 +76,13 @@ FILLED EXAMPLE (for reference — do not copy verbatim, use real data for each s
 <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#9b9bce;margin:28px 0 12px;font-weight:600;">SMA 150 SETUPS</div>
 <div style="background:#16213e;border-radius:10px;padding:16px 18px;margin-bottom:10px;border-left:3px solid #2d8659;">
 <div style="display:flex;justify-content:space-between;align-items:center;">
-<div><span style="font-size:17px;font-weight:700;color:#fff;">AAPL</span><span style="font-size:12px;color:#888;margin-left:8px;">Apple Inc.</span></div>
+<div><span style="font-size:17px;font-weight:700;color:#fff;">AAPL</span><span style="font-size:12px;color:#888;margin-left:8px;">Apple Inc.</span><div style="font-size:12px;color:#bbb;margin-top:2px;">$181.20 <span style="color:#2d8659;">+0.8%</span></div></div>
 <div style="display:flex;align-items:center;gap:8px;">
 <span style="font-size:10px;padding:3px 8px;border-radius:10px;color:#2d8659;background:rgba(45,134,89,0.15);">Bullish</span>
 <div style="display:flex;align-items:flex-end;gap:2px;"><div style="width:4px;height:12px;background:#2d8659;border-radius:1px;"></div><div style="width:4px;height:16px;background:#2d8659;border-radius:1px;"></div><div style="width:4px;height:20px;background:#2d8659;border-radius:1px;"></div><div style="width:4px;height:24px;background:#2d8659;border-radius:1px;"></div><div style="width:4px;height:28px;background:#333;border-radius:1px;"></div></div>
 </div>
 </div>
+<div style="display:flex;gap:6px;margin:10px 0 0;"><span style="font-size:11px;padding:2px 8px;border-radius:6px;background:rgba(155,155,206,0.12);color:#9b9bce;">R:R 1.7:1</span></div>
 <div style="font-size:13px;color:#bbb;margin:10px 0;">Bouncing off 150-day SMA with rising volume. Higher low forming above prior support at $178, suggesting institutional accumulation at this level.</div>
 <div style="display:flex;gap:16px;margin-top:12px;">
 <div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Entry Zone</div><div style="font-size:14px;font-weight:500;color:#e0e0e0;">$180.50–$183.00</div></div>
@@ -86,12 +95,13 @@ FILLED EXAMPLE — CUP & HANDLE with Measured Target row (for reference — do n
 <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:#9b9bce;margin:28px 0 12px;font-weight:600;">CUP &amp; HANDLE PATTERNS</div>
 <div style="background:#16213e;border-radius:10px;padding:16px 18px;margin-bottom:10px;border-left:3px solid #2d8659;">
 <div style="display:flex;justify-content:space-between;align-items:center;">
-<div><span style="font-size:17px;font-weight:700;color:#fff;">MSFT</span><span style="font-size:12px;color:#888;margin-left:8px;">Microsoft Corp.</span></div>
+<div><span style="font-size:17px;font-weight:700;color:#fff;">MSFT</span><span style="font-size:12px;color:#888;margin-left:8px;">Microsoft Corp.</span><div style="font-size:12px;color:#bbb;margin-top:2px;">$424.80 <span style="color:#2d8659;">+1.3%</span></div></div>
 <div style="display:flex;align-items:center;gap:8px;">
 <span style="font-size:10px;padding:3px 8px;border-radius:10px;color:#2d8659;background:rgba(45,134,89,0.15);">Bullish</span>
 <div style="display:flex;align-items:flex-end;gap:2px;"><div style="width:4px;height:12px;background:#2d8659;border-radius:1px;"></div><div style="width:4px;height:16px;background:#2d8659;border-radius:1px;"></div><div style="width:4px;height:20px;background:#2d8659;border-radius:1px;"></div><div style="width:4px;height:24px;background:#2d8659;border-radius:1px;"></div><div style="width:4px;height:28px;background:#333;border-radius:1px;"></div></div>
 </div>
 </div>
+<div style="display:flex;gap:6px;margin:10px 0 0;"><span style="font-size:11px;padding:2px 8px;border-radius:6px;background:rgba(155,155,206,0.12);color:#9b9bce;">R:R 4.4:1</span></div>
 <div style="font-size:13px;color:#bbb;margin:10px 0;">Clean 14% cup formed over 8 weeks with tight 4% handle near the rim. Volume dried up in the handle, suggesting base completion. Breakout above $425 would confirm the pattern.</div>
 <div style="font-size:11px;color:#9b9bce;background:rgba(155,155,206,0.08);padding:6px 10px;border-radius:6px;margin:10px 0;display:flex;align-items:center;gap:6px;"><span style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#9b9bce;font-weight:600;">Measured Target</span><span style="color:#fff;font-weight:500;">$485.50</span><span style="color:#888;">(+14.2% upside)</span></div>
 <div style="display:flex;gap:16px;margin-top:12px;">
@@ -100,6 +110,41 @@ FILLED EXAMPLE — CUP & HANDLE with Measured Target row (for reference — do n
 <div style="flex:1;"><div style="font-size:10px;text-transform:uppercase;color:#666;">Exit Plan</div><div style="font-size:14px;font-weight:500;color:#2d8659;">50% at measured target $485.50, trail rest with stop at 20-day low</div></div>
 </div>
 </div>`;
+
+// ---------------------------------------------------------------------------
+// Market context block prepended to every section's user message
+// ---------------------------------------------------------------------------
+
+function signedPct(v: number): string {
+  return `${v >= 0 ? "+" : ""}${v.toFixed(2)}%`;
+}
+
+/**
+ * Deterministic one-block summary of the overall tape, built from index
+ * data that's already fetched. Lets Claude calibrate aggressiveness.
+ */
+export function buildMarketContext(stocks: EnrichedStock[]): string {
+  const parts: string[] = [];
+
+  for (const ticker of ["SPY", "QQQ"]) {
+    const s = stocks.find((x) => x.ticker === ticker);
+    if (!s) continue;
+    const ind = s.indicators;
+    const smaStr = [
+      ind.priceVsSma150 ? `${ind.priceVsSma150} SMA150` : null,
+      ind.priceVsSma200 ? `${ind.priceVsSma200} SMA200` : null,
+    ].filter(Boolean).join(", ");
+    parts.push(`${ticker}: $${s.currentPrice.toFixed(2)} (${smaStr}) | 1d ${signedPct(s.dailyChangePercent)} | 1m ${signedPct(ind.priceChange1m)} | RSI ${ind.rsi.toFixed(0)}`);
+  }
+
+  const dxy = stocks.find((x) => x.ticker === "DX-Y.NYB");
+  if (dxy) {
+    parts.push(`US Dollar Index: ${dxy.currentPrice.toFixed(2)} | 1m ${signedPct(dxy.indicators.priceChange1m)}`);
+  }
+
+  if (parts.length === 0) return "";
+  return ["=== MARKET CONTEXT ===", ...parts].join("\n");
+}
 
 // ---------------------------------------------------------------------------
 // Indicator-only user message (no OHLCV candles)
@@ -215,7 +260,7 @@ export function buildPatternsUserMessage(stocks: EnrichedStock[], date: string):
     const ind = s.indicators;
     lines.push("");
     lines.push(`--- ${s.ticker} (${s.companyName}) ---`);
-    lines.push(`Price: $${s.currentPrice.toFixed(2)}`);
+    lines.push(`Price: $${s.currentPrice.toFixed(2)} | Change 1d: ${s.dailyChangePercent >= 0 ? "+" : ""}${s.dailyChangePercent.toFixed(2)}%`);
     lines.push(`RSI(14): ${ind.rsi} | SMA150: ${ind.sma150 ? `$${ind.sma150.toFixed(2)} (${ind.priceVsSma150})` : "N/A"} | SMA200: ${ind.sma200 ? `$${ind.sma200.toFixed(2)} (${ind.priceVsSma200})` : "N/A"}`);
     lines.push(`52W: $${s.low52w.toFixed(2)}–$${s.high52w.toFixed(2)} | Position: ${(ind.weekPosition52 * 100).toFixed(0)}%`);
 

@@ -20,6 +20,15 @@ export const CONFIG = {
   minPeakSpacing: 8,        // minimum candles between H&S peaks
   timezone: "America/New_York",
   watchlistPath: "watchlist.txt",
+  // Tickers shown in the market snapshot strip at the top of the email,
+  // in display order. Skipped silently if not in the watchlist / not fetched.
+  marketSnapshot: [
+    { ticker: "SPY", label: "SPY" },
+    { ticker: "QQQ", label: "QQQ" },
+    { ticker: "^DJI", label: "DJI" },
+    { ticker: "^GSPTSE", label: "TSX" },
+    { ticker: "DX-Y.NYB", label: "DXY" },
+  ],
 } as const;
 
 // --- Environment Variables ---
@@ -58,6 +67,7 @@ export interface Candle {
 export interface StockData {
   ticker: string;
   companyName: string;
+  isIndex: boolean;          // INDEX/CURRENCY instruments — market context only, not tradeable setups
   currentPrice: number;
   dailyChange: number;
   dailyChangePercent: number;
@@ -93,4 +103,10 @@ export interface BriefingMeta {
   date: string;
   tickerCount: number;
   generationTimeSeconds: number;
+  setupCount?: number;       // filled in after the email HTML is built
+}
+
+export interface MarketSnapshotEntry {
+  label: string;
+  changePct: number;
 }

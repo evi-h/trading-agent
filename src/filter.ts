@@ -179,6 +179,10 @@ export function filterStocks(stocks: EnrichedStock[]): Map<SectionName, Enriched
   ]);
 
   for (const stock of stocks) {
+    // Indices and currency indexes feed the market snapshot strip and
+    // context — they aren't directly tradeable, so no setup sections
+    if (stock.isIndex) continue;
+
     const { indicators } = stock;
     const { sma150, sma200 } = indicators;
 

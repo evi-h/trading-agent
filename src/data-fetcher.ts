@@ -88,9 +88,9 @@ async function fetchSingleStock(ticker: string): Promise<EnrichedStock | null> {
     // report zero volume on Yahoo, so the illiquidity filter doesn't apply to them
     const recentVolumes = allCandles.slice(-20).map((d) => d.volume);
     const avgVolume20d = recentVolumes.reduce((a, b) => a + b, 0) / recentVolumes.length;
-    const exemptFromVolumeFilter = meta.instrumentType === "INDEX" || meta.instrumentType === "CURRENCY";
+    const isIndex = meta.instrumentType === "INDEX" || meta.instrumentType === "CURRENCY";
 
-    if (!exemptFromVolumeFilter && avgVolume20d < CONFIG.minAvgVolume) {
+    if (!isIndex && avgVolume20d < CONFIG.minAvgVolume) {
       console.warn(`  Skipping ${ticker}: avg volume ${Math.round(avgVolume20d).toLocaleString()} < ${CONFIG.minAvgVolume.toLocaleString()}`);
       return null;
     }
@@ -104,6 +104,7 @@ async function fetchSingleStock(ticker: string): Promise<EnrichedStock | null> {
     const stockData: StockData = {
       ticker,
       companyName: meta.shortName ?? meta.longName ?? ticker,
+      isIndex,
       currentPrice: lastCandle.close,
       dailyChange: Math.round(dailyChange * 100) / 100,
       dailyChangePercent: Math.round(dailyChangePercent * 100) / 100,

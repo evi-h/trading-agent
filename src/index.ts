@@ -1,9 +1,10 @@
 import "dotenv/config";
-import { CONFIG, ENV } from "./config.js";
+import { CONFIG, ENV, type BriefingMeta, type MarketSnapshotEntry } from "./config.js";
 import { readWatchlist } from "./watchlist.js";
 import { fetchStockData } from "./data-fetcher.js";
 import { filterStocks } from "./filter.js";
 import { analyzeStocks } from "./analyzer.js";
+import { buildMarketContext } from "./prompts.js";
 import { buildEmailHtml } from "./email-builder.js";
 import { sendBriefing } from "./emailer.js";
 
@@ -64,20 +65,28 @@ async function main(): Promise<void> {
     .join(", ");
   console.log(`  Filtered: ${sectionSummary}`);
 
+  // Market snapshot strip + regime context, from already-fetched index data
+  const snapshot: MarketSnapshotEntry[] = CONFIG.marketSnapshot.flatMap(({ ticker, label }) => {
+    const s = stocks.find((x) => x.ticker === ticker);
+    return s ? [{ label, changePct: s.dailyChangePercent }] : [];
+  });
+  const marketContext = buildMarketContext(stocks);
+
   // 4. Pass 2: parallel Claude calls per section
   console.log("\nAnalyzing with Claude...");
-  const sections = await analyzeStocks(filtered, date);
+  const sections = await analyzeStocks(filtered, date, marketContext);
 
   const generationTimeSeconds = (Date.now() - startTime) / 1000;
 
-  const meta = {
+  const meta: BriefingMeta = {
     date,
     tickerCount: stocks.length,
     generationTimeSeconds,
   };
 
   // 5. Assemble email HTML
-  const fullHtml = buildEmailHtml(sections, meta);
+  const { html: fullHtml, setupCount } = buildEmailHtml(sections, meta, snapshot);
+  meta.setupCount = setupCount;
 
   // 6. Send or print
   if (ENV.dryRun) {

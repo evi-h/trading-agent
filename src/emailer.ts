@@ -13,10 +13,13 @@ export async function sendBriefing(fullHtml: string, meta: BriefingMeta): Promis
     },
   });
 
+  const setups = meta.setupCount ?? 0;
+  const setupLabel = setups === 0 ? "no setups" : setups === 1 ? "1 setup" : `${setups} setups`;
+
   await transport.sendMail({
     from: ENV.emailFrom,
     to: ENV.emailTo,
-    subject: `Evening Briefing — ${meta.date}`,
+    subject: `Evening Briefing — ${setupLabel} — ${meta.date}`,
     html: fullHtml,
   });
 
