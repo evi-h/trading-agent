@@ -6,6 +6,7 @@ export async function sendBriefing(fullHtml: string, meta: BriefingMeta): Promis
     host: ENV.smtpHost,
     port: ENV.smtpPort,
     secure: false,
+    requireTLS: true, // refuse to send credentials over an unencrypted session
     auth: {
       user: ENV.smtpUser,
       pass: ENV.smtpPass,

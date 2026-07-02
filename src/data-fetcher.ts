@@ -20,19 +20,12 @@ interface YahooChartResult {
     shortName?: string;
     longName?: string;
     currency: string;
+    instrumentType?: string;
     regularMarketPrice: number;
     previousClose: number;
     fiftyTwoWeekHigh: number;
     fiftyTwoWeekLow: number;
   };
-}
-
-interface YahooQuoteSummary {
-  shortName?: string;
-  longName?: string;
-  sector?: string;
-  trailingPE?: number;
-  marketCap?: number;
 }
 
 async function fetchChart(ticker: string): Promise<YahooChartResult> {
@@ -61,45 +54,9 @@ async function fetchChart(ticker: string): Promise<YahooChartResult> {
   return result;
 }
 
-async function fetchQuoteSummary(ticker: string): Promise<YahooQuoteSummary> {
-  try {
-    const url = `https://query1.finance.yahoo.com/v10/finance/quoteSummary/${encodeURIComponent(ticker)}?modules=summaryProfile,defaultKeyStatistics,financialData`;
-
-    const res = await fetch(url, {
-      headers: {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-      },
-    });
-
-    if (!res.ok) return {};
-
-    const data = await res.json() as {
-      quoteSummary: {
-        result: Array<{
-          summaryProfile?: { sector?: string };
-          defaultKeyStatistics?: { trailingEps?: { raw?: number } };
-          financialData?: { currentPrice?: { raw?: number } };
-        }>;
-      };
-    };
-
-    const result = data.quoteSummary?.result?.[0];
-    return {
-      sector: result?.summaryProfile?.sector,
-      trailingPE: undefined, // extracted from chart meta if available
-      marketCap: undefined,
-    };
-  } catch {
-    return {};
-  }
-}
-
 async function fetchSingleStock(ticker: string): Promise<EnrichedStock | null> {
   try {
-    const [chart, summary] = await Promise.all([
-      fetchChart(ticker),
-      fetchQuoteSummary(ticker),
-    ]);
+    const chart = await fetchChart(ticker);
 
     const quotes = chart.indicators.quote[0];
     const timestamps = chart.timestamp;
@@ -125,11 +82,15 @@ async function fetchSingleStock(ticker: string): Promise<EnrichedStock | null> {
       return null;
     }
 
-    // Check average volume filter
+    const meta = chart.meta;
+
+    // Check average volume filter — indices and currency indexes (VIX, DXY)
+    // report zero volume on Yahoo, so the illiquidity filter doesn't apply to them
     const recentVolumes = allCandles.slice(-20).map((d) => d.volume);
     const avgVolume20d = recentVolumes.reduce((a, b) => a + b, 0) / recentVolumes.length;
+    const exemptFromVolumeFilter = meta.instrumentType === "INDEX" || meta.instrumentType === "CURRENCY";
 
-    if (avgVolume20d < CONFIG.minAvgVolume) {
+    if (!exemptFromVolumeFilter && avgVolume20d < CONFIG.minAvgVolume) {
       console.warn(`  Skipping ${ticker}: avg volume ${Math.round(avgVolume20d).toLocaleString()} < ${CONFIG.minAvgVolume.toLocaleString()}`);
       return null;
     }
@@ -140,12 +101,9 @@ async function fetchSingleStock(ticker: string): Promise<EnrichedStock | null> {
     const dailyChange = lastCandle.close - prevCandle.close;
     const dailyChangePercent = (dailyChange / prevCandle.close) * 100;
 
-    const meta = chart.meta;
-
     const stockData: StockData = {
       ticker,
-      companyName: meta.shortName ?? meta.longName ?? summary.shortName ?? ticker,
-      sector: summary.sector ?? "N/A",
+      companyName: meta.shortName ?? meta.longName ?? ticker,
       currentPrice: lastCandle.close,
       dailyChange: Math.round(dailyChange * 100) / 100,
       dailyChangePercent: Math.round(dailyChangePercent * 100) / 100,
@@ -153,8 +111,6 @@ async function fetchSingleStock(ticker: string): Promise<EnrichedStock | null> {
       avgVolume20d: Math.round(avgVolume20d),
       high52w: meta.fiftyTwoWeekHigh ?? 0,
       low52w: meta.fiftyTwoWeekLow ?? 0,
-      peRatio: summary.trailingPE ?? null,
-      marketCap: summary.marketCap ?? null,
       candles,
     };
 

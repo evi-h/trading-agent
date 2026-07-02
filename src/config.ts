@@ -58,7 +58,6 @@ export interface Candle {
 export interface StockData {
   ticker: string;
   companyName: string;
-  sector: string;
   currentPrice: number;
   dailyChange: number;
   dailyChangePercent: number;
@@ -66,8 +65,6 @@ export interface StockData {
   avgVolume20d: number;
   high52w: number;
   low52w: number;
-  peRatio: number | null;
-  marketCap: number | null;
   candles: Candle[];
 }
 

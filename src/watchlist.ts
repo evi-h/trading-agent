@@ -8,7 +8,7 @@ const INDEX_OVERRIDES: Record<string, string> = {
   "TVC:NDQ": "^IXIC",
   "SP:SPX": "^GSPC",
   "CBOE:VIX": "^VIX",
-  "TSX:TSX": "^OSPTSX",
+  "TSX:TSX": "^GSPTSE",
   "BITSTAMP:BTCUSD": "BTC-USD",
   "BITSTAMP:ETHUSD": "ETH-USD",
 };

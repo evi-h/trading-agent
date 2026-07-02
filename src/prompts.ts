@@ -111,13 +111,6 @@ function formatVolume(n: number): string {
   return n.toString();
 }
 
-function formatNumber(n: number): string {
-  if (n >= 1e12) return `$${(n / 1e12).toFixed(1)}T`;
-  if (n >= 1e9) return `$${(n / 1e9).toFixed(1)}B`;
-  if (n >= 1e6) return `$${(n / 1e6).toFixed(1)}M`;
-  return `$${n.toLocaleString()}`;
-}
-
 function buildIndicatorLines(stocks: EnrichedStock[], date: string): string {
   const lines: string[] = [
     `Date: ${date}`,
@@ -130,11 +123,10 @@ function buildIndicatorLines(stocks: EnrichedStock[], date: string): string {
     const ind = s.indicators;
     lines.push("");
     lines.push(`--- ${s.ticker} (${s.companyName}) ---`);
-    lines.push(`Sector: ${s.sector} | Price: $${s.currentPrice.toFixed(2)} | Change 1d: ${s.dailyChangePercent >= 0 ? "+" : ""}${s.dailyChangePercent.toFixed(2)}%`);
+    lines.push(`Price: $${s.currentPrice.toFixed(2)} | Change 1d: ${s.dailyChangePercent >= 0 ? "+" : ""}${s.dailyChangePercent.toFixed(2)}%`);
     lines.push(`Change 5d: ${ind.priceChange5d >= 0 ? "+" : ""}${ind.priceChange5d.toFixed(2)}% | 1m: ${ind.priceChange1m >= 0 ? "+" : ""}${ind.priceChange1m.toFixed(2)}% | 3m: ${ind.priceChange3m >= 0 ? "+" : ""}${ind.priceChange3m.toFixed(2)}%`);
     lines.push(`Volume: ${formatVolume(s.volume)} | Avg: ${formatVolume(s.avgVolume20d)} | Vol ratio: ${ind.volumeRatio.toFixed(2)}x`);
     lines.push(`52W: $${s.low52w.toFixed(2)}–$${s.high52w.toFixed(2)} | Position: ${(ind.weekPosition52 * 100).toFixed(0)}%`);
-    lines.push(`P/E: ${s.peRatio?.toFixed(1) ?? "N/A"} | MCap: ${s.marketCap ? formatNumber(s.marketCap) : "N/A"}`);
     lines.push(`RSI(14): ${ind.rsi}${ind.rsiSignal ? ` [${ind.rsiSignal.toUpperCase()}]` : ""} | SMA150: ${ind.sma150 ? `$${ind.sma150.toFixed(2)} (${ind.priceVsSma150})` : "N/A"} | SMA200: ${ind.sma200 ? `$${ind.sma200.toFixed(2)} (${ind.priceVsSma200})` : "N/A"}`);
   }
 
@@ -223,7 +215,7 @@ export function buildPatternsUserMessage(stocks: EnrichedStock[], date: string):
     const ind = s.indicators;
     lines.push("");
     lines.push(`--- ${s.ticker} (${s.companyName}) ---`);
-    lines.push(`Sector: ${s.sector} | Price: $${s.currentPrice.toFixed(2)}`);
+    lines.push(`Price: $${s.currentPrice.toFixed(2)}`);
     lines.push(`RSI(14): ${ind.rsi} | SMA150: ${ind.sma150 ? `$${ind.sma150.toFixed(2)} (${ind.priceVsSma150})` : "N/A"} | SMA200: ${ind.sma200 ? `$${ind.sma200.toFixed(2)} (${ind.priceVsSma200})` : "N/A"}`);
     lines.push(`52W: $${s.low52w.toFixed(2)}–$${s.high52w.toFixed(2)} | Position: ${(ind.weekPosition52 * 100).toFixed(0)}%`);
 
