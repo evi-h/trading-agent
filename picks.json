@@ -11,9 +11,9 @@
    "entryHigh": 246.5,
    "stop": 234,
    "target": 264,
-   "lastPrice": 254.9600067138672,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 12
+   "lastPrice": 249.88999938964844,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 13
   },
   {
    "ticker": "IGV",
@@ -25,9 +25,9 @@
    "entryHigh": 94.5,
    "stop": 90.8,
    "target": 97,
-   "lastPrice": 93.94000244140625,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 12
+   "lastPrice": 93.69999694824219,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 13
   },
   {
    "ticker": "AMZN",
@@ -39,9 +39,9 @@
    "entryHigh": 246,
    "stop": 233.5,
    "target": 265,
-   "lastPrice": 254.9600067138672,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 12
+   "lastPrice": 249.88999938964844,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 13
   },
   {
    "ticker": "RDDT",
@@ -53,9 +53,9 @@
    "entryHigh": 192,
    "stop": 183,
    "target": 210,
-   "lastPrice": 198.02999877929688,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 12
+   "lastPrice": 185.25999450683594,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 13
   },
   {
    "ticker": "UPS",
@@ -67,9 +67,9 @@
    "entryHigh": 111.2,
    "stop": 104.8,
    "target": 122.07,
-   "lastPrice": 112.94000244140625,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 12
+   "lastPrice": 117.18000030517578,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 13
   },
   {
    "ticker": "IREN",
@@ -81,23 +81,9 @@
    "entryHigh": 38.5,
    "stop": 34.5,
    "target": 45,
-   "lastPrice": 38.279998779296875,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 12
-  },
-  {
-   "ticker": "AAPL",
-   "section": "longterm",
-   "signal": "Bullish",
-   "flaggedDate": "2026-07-02",
-   "flaggedPrice": 308.6300048828125,
-   "entryLow": 305,
-   "entryHigh": 310,
-   "stop": 289,
-   "target": 330,
-   "lastPrice": 327.5,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 11
+   "lastPrice": 34.83000183105469,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 13
   },
   {
    "ticker": "IBKR",
@@ -109,9 +95,9 @@
    "entryHigh": 92,
    "stop": 84.5,
    "target": 97.8,
-   "lastPrice": 97.41000366210938,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 11
+   "lastPrice": 92.20999908447266,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 12
   },
   {
    "ticker": "TSM",
@@ -123,9 +109,9 @@
    "entryHigh": 438,
    "stop": 408,
    "target": 478,
-   "lastPrice": 419.4800109863281,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 11
+   "lastPrice": 409.739990234375,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 12
   },
   {
    "ticker": "HOOD",
@@ -137,9 +123,9 @@
    "entryHigh": 113,
    "stop": 99,
    "target": 130,
-   "lastPrice": 115.54000091552734,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 11
+   "lastPrice": 106.0199966430664,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 12
   },
   {
    "ticker": "F",
@@ -151,9 +137,9 @@
    "entryHigh": 13.45,
    "stop": 12.75,
    "target": 14.6,
-   "lastPrice": 14.180000305175781,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 10
+   "lastPrice": 14.1899995803833,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 11
   },
   {
    "ticker": "XBI",
@@ -165,9 +151,9 @@
    "entryHigh": 153,
    "stop": 146,
    "target": 165,
-   "lastPrice": 156.22000122070312,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 10
+   "lastPrice": 152,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 11
   },
   {
    "ticker": "OSCR",
@@ -179,9 +165,9 @@
    "entryHigh": 28.5,
    "stop": 25.5,
    "target": 33,
-   "lastPrice": 30.610000610351562,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 10
+   "lastPrice": 28.860000610351562,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 11
   },
   {
    "ticker": "BAC",
@@ -193,9 +179,9 @@
    "entryHigh": 57,
    "stop": 54.5,
    "target": 62,
-   "lastPrice": 61.59000015258789,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 10
+   "lastPrice": 61.4900016784668,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 11
   },
   {
    "ticker": "AVGO",
@@ -207,9 +193,9 @@
    "entryHigh": 378,
    "stop": 358,
    "target": 410,
-   "lastPrice": 394.2799987792969,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 9
+   "lastPrice": 374.45001220703125,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 10
   },
   {
    "ticker": "IGV",
@@ -221,9 +207,9 @@
    "entryHigh": 97.2,
    "stop": 91,
    "target": 103,
-   "lastPrice": 93.94000244140625,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 9
+   "lastPrice": 93.69999694824219,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 10
   },
   {
    "ticker": "RDDT",
@@ -235,9 +221,9 @@
    "entryHigh": 202.5,
    "stop": 184.5,
    "target": 240,
-   "lastPrice": 198.02999877929688,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 9
+   "lastPrice": 185.25999450683594,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 10
   },
   {
    "ticker": "AXP",
@@ -249,9 +235,9 @@
    "entryHigh": 346,
    "stop": 333,
    "target": 385,
-   "lastPrice": 358.44000244140625,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 9
+   "lastPrice": 361.57000732421875,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 10
   },
   {
    "ticker": "RDDT",
@@ -263,9 +249,9 @@
    "entryHigh": 202,
    "stop": 184,
    "target": 225,
-   "lastPrice": 198.02999877929688,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 8
+   "lastPrice": 185.25999450683594,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 9
   },
   {
    "ticker": "F",
@@ -277,9 +263,9 @@
    "entryHigh": 13.7,
    "stop": 12.95,
    "target": 14.6,
-   "lastPrice": 14.180000305175781,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 8
+   "lastPrice": 14.1899995803833,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 9
   },
   {
    "ticker": "GEV",
@@ -291,9 +277,9 @@
    "entryHigh": 1085,
    "stop": 1010,
    "target": 1180,
-   "lastPrice": 1055.280029296875,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 8
+   "lastPrice": 1036.219970703125,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 9
   },
   {
    "ticker": "POWL",
@@ -305,9 +291,9 @@
    "entryHigh": 237,
    "stop": 212,
    "target": 285,
-   "lastPrice": 247.00999450683594,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 8
+   "lastPrice": 235.7899932861328,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 9
   },
   {
    "ticker": "TTWO",
@@ -319,23 +305,9 @@
    "entryHigh": 242,
    "stop": 232,
    "target": null,
-   "lastPrice": 243.8000030517578,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 8
-  },
-  {
-   "ticker": "TEM",
-   "section": "sma150",
-   "signal": "Forming",
-   "flaggedDate": "2026-07-08",
-   "flaggedPrice": 57.27000045776367,
-   "entryLow": 56,
-   "entryHigh": 57.5,
-   "stop": 54.2,
-   "target": 62.5,
-   "lastPrice": 57.25,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 7
+   "lastPrice": 239.57000732421875,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 9
   },
   {
    "ticker": "JPM",
@@ -347,37 +319,9 @@
    "entryHigh": 333,
    "stop": 318.5,
    "target": 354,
-   "lastPrice": 346.9100036621094,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 7
-  },
-  {
-   "ticker": "DELL",
-   "section": "longterm",
-   "signal": "Forming",
-   "flaggedDate": "2026-07-08",
-   "flaggedPrice": 431.9700012207031,
-   "entryLow": 428,
-   "entryHigh": 435,
-   "stop": 405,
-   "target": 469,
-   "lastPrice": 412.67999267578125,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 7
-  },
-  {
-   "ticker": "TEM",
-   "section": "sma200",
-   "signal": "Forming",
-   "flaggedDate": "2026-07-09",
-   "flaggedPrice": 61.5,
-   "entryLow": 60.5,
-   "entryHigh": 62,
-   "stop": 55.8,
-   "target": 73,
-   "lastPrice": 57.25,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 6
+   "lastPrice": 343.1499938964844,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 8
   },
   {
    "ticker": "BAC",
@@ -389,9 +333,9 @@
    "entryHigh": 59.5,
    "stop": 56.8,
    "target": 64,
-   "lastPrice": 61.59000015258789,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 6
+   "lastPrice": 61.4900016784668,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 7
   },
   {
    "ticker": "META",
@@ -403,9 +347,9 @@
    "entryHigh": 672,
    "stop": 641,
    "target": 720,
-   "lastPrice": 681.3099975585938,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 5
+   "lastPrice": 664.5399780273438,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 6
   },
   {
    "ticker": "MMM",
@@ -417,23 +361,9 @@
    "entryHigh": 158.5,
    "stop": 153.5,
    "target": 166,
-   "lastPrice": 160.52999877929688,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 5
-  },
-  {
-   "ticker": "AVGO",
-   "section": "sma200",
-   "signal": "Bullish",
-   "flaggedDate": "2026-07-12",
-   "flaggedPrice": 399.9700012207031,
-   "entryLow": 396,
-   "entryHigh": 403,
-   "stop": 378,
-   "target": 445,
-   "lastPrice": 394.2799987792969,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 5
+   "lastPrice": 161.77000427246094,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 6
   },
   {
    "ticker": "MMM",
@@ -445,9 +375,9 @@
    "entryHigh": 160,
    "stop": 155.8,
    "target": 167,
-   "lastPrice": 160.52999877929688,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 5
+   "lastPrice": 161.77000427246094,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 6
   },
   {
    "ticker": "NVDA",
@@ -459,9 +389,9 @@
    "entryHigh": 212.5,
    "stop": 198.5,
    "target": 236,
-   "lastPrice": 212.5,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 5
+   "lastPrice": 207.39999389648438,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 6
   },
   {
    "ticker": "META",
@@ -473,9 +403,9 @@
    "entryHigh": 670,
    "stop": 628,
    "target": 720,
-   "lastPrice": 681.3099975585938,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 5
+   "lastPrice": 664.5399780273438,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 6
   },
   {
    "ticker": "XBI",
@@ -487,9 +417,9 @@
    "entryHigh": 159.5,
    "stop": 147.5,
    "target": 172,
-   "lastPrice": 156.22000122070312,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 5
+   "lastPrice": 152,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 6
   },
   {
    "ticker": "SHOP",
@@ -501,37 +431,9 @@
    "entryHigh": 128.5,
    "stop": 119,
    "target": 135,
-   "lastPrice": 123.55000305175781,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 4
-  },
-  {
-   "ticker": "ORCL",
-   "section": "rsi",
-   "signal": "Forming",
-   "flaggedDate": "2026-07-13",
-   "flaggedPrice": 131.5399932861328,
-   "entryLow": 130.5,
-   "entryHigh": 133,
-   "stop": 124.9,
-   "target": 145,
-   "lastPrice": 132.49000549316406,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 4
-  },
-  {
-   "ticker": "IONQ",
-   "section": "rsi",
-   "signal": "Forming",
-   "flaggedDate": "2026-07-13",
-   "flaggedPrice": 38.880001068115234,
-   "entryLow": 38.3,
-   "entryHigh": 39.5,
-   "stop": 35.4,
-   "target": 45.3,
-   "lastPrice": 37.5099983215332,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 4
+   "lastPrice": 125.05999755859375,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 5
   },
   {
    "ticker": "TEM",
@@ -543,9 +445,9 @@
    "entryHigh": 57,
    "stop": 50.5,
    "target": 69.94,
-   "lastPrice": 57.25,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 3
+   "lastPrice": 53.59000015258789,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 4
   },
   {
    "ticker": "TTWO",
@@ -557,23 +459,9 @@
    "entryHigh": 238,
    "stop": 227.5,
    "target": 255,
-   "lastPrice": 243.8000030517578,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 2
-  },
-  {
-   "ticker": "RKLB",
-   "section": "sma200",
-   "signal": "Forming",
-   "flaggedDate": "2026-07-14",
-   "flaggedPrice": 78.80999755859375,
-   "entryLow": 77.5,
-   "entryHigh": 79.5,
-   "stop": 74,
-   "target": 86,
-   "lastPrice": 76.19999694824219,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 2
+   "lastPrice": 239.57000732421875,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 3
   },
   {
    "ticker": "BAC",
@@ -585,9 +473,9 @@
    "entryHigh": 61.2,
    "stop": 57.4,
    "target": 65,
-   "lastPrice": 61.59000015258789,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 2
+   "lastPrice": 61.4900016784668,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 3
   },
   {
    "ticker": "CRWD",
@@ -599,37 +487,9 @@
    "entryHigh": 200,
    "stop": 182,
    "target": 235,
-   "lastPrice": 206.77000427246094,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 2
-  },
-  {
-   "ticker": "RCAT",
-   "section": "patterns",
-   "signal": "Bullish",
-   "flaggedDate": "2026-07-14",
-   "flaggedPrice": 8.789999961853027,
-   "entryLow": 9.4,
-   "entryHigh": 9.7,
-   "stop": 8.2,
-   "target": 11.2,
-   "lastPrice": 8.239999771118164,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 2
-  },
-  {
-   "ticker": "LUNR",
-   "section": "rsi",
-   "signal": "Forming",
-   "flaggedDate": "2026-07-14",
-   "flaggedPrice": 14.90999984741211,
-   "entryLow": 14.7,
-   "entryHigh": 15.1,
-   "stop": 13.6,
-   "target": 17.5,
-   "lastPrice": 14.850000381469727,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 2
+   "lastPrice": 203.75999450683594,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 3
   },
   {
    "ticker": "GEV",
@@ -641,9 +501,9 @@
    "entryHigh": 1105,
    "stop": 1035,
    "target": 1195,
-   "lastPrice": 1055.280029296875,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 1
+   "lastPrice": 1036.219970703125,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 2
   },
   {
    "ticker": "PYPL",
@@ -655,9 +515,9 @@
    "entryHigh": 54.5,
    "stop": 51.5,
    "target": 62,
-   "lastPrice": 55.52000045776367,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 0
+   "lastPrice": 56.72999954223633,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 1
   },
   {
    "ticker": "AXP",
@@ -669,9 +529,9 @@
    "entryHigh": 360,
    "stop": 342,
    "target": 383,
-   "lastPrice": 358.44000244140625,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 0
+   "lastPrice": 361.57000732421875,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 1
   },
   {
    "ticker": "PYPL",
@@ -683,9 +543,9 @@
    "entryHigh": 52,
    "stop": 47.5,
    "target": 62,
-   "lastPrice": 55.52000045776367,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 0
+   "lastPrice": 56.72999954223633,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 1
   },
   {
    "ticker": "IBKR",
@@ -697,23 +557,9 @@
    "entryHigh": 98.5,
    "stop": 92,
    "target": 104,
-   "lastPrice": 97.41000366210938,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 0
-  },
-  {
-   "ticker": "PYPL",
-   "section": "rsi",
-   "signal": "Caution",
-   "flaggedDate": "2026-07-15",
-   "flaggedPrice": 55.52000045776367,
-   "entryLow": 54.5,
-   "entryHigh": 55.5,
-   "stop": 58.2,
-   "target": 53,
-   "lastPrice": 55.52000045776367,
-   "lastUpdated": "2026-07-15",
-   "daysTracked": 0
+   "lastPrice": 92.20999908447266,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 1
   },
   {
    "ticker": "IBM",
@@ -725,8 +571,148 @@
    "entryHigh": 214,
    "stop": 205,
    "target": 228,
-   "lastPrice": 211.1999969482422,
-   "lastUpdated": "2026-07-15",
+   "lastPrice": 219.0500030517578,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 1
+  },
+  {
+   "ticker": "QCOM",
+   "section": "sma150",
+   "signal": "Caution",
+   "flaggedDate": "2026-07-16",
+   "flaggedPrice": 170.61000061035156,
+   "entryLow": 169.5,
+   "entryHigh": 172.5,
+   "stop": 166,
+   "target": 184,
+   "lastPrice": 170.61000061035156,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "QCOM",
+   "section": "sma200",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-16",
+   "flaggedPrice": 170.61000061035156,
+   "entryLow": 169.5,
+   "entryHigh": 172,
+   "stop": 166,
+   "target": 184,
+   "lastPrice": 170.61000061035156,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "WEN",
+   "section": "sma200",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-16",
+   "flaggedPrice": 7.829999923706055,
+   "entryLow": 7.8,
+   "entryHigh": 7.95,
+   "stop": 7.45,
+   "target": 8.9,
+   "lastPrice": 7.829999923706055,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "META",
+   "section": "sma200",
+   "signal": "Bullish",
+   "flaggedDate": "2026-07-16",
+   "flaggedPrice": 664.5399780273438,
+   "entryLow": 660,
+   "entryHigh": 670,
+   "stop": 638,
+   "target": 730,
+   "lastPrice": 664.5399780273438,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "UPS",
+   "section": "longterm",
+   "signal": "Bullish",
+   "flaggedDate": "2026-07-16",
+   "flaggedPrice": 117.18000030517578,
+   "entryLow": 115.5,
+   "entryHigh": 118.5,
+   "stop": 109,
+   "target": 126,
+   "lastPrice": 117.18000030517578,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "GOOG",
+   "section": "longterm",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-16",
+   "flaggedPrice": 353.80999755859375,
+   "entryLow": 348,
+   "entryHigh": 355,
+   "stop": 332,
+   "target": 380,
+   "lastPrice": 353.80999755859375,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "SHOP",
+   "section": "patterns",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-16",
+   "flaggedPrice": 125.05999755859375,
+   "entryLow": 127.8,
+   "entryHigh": 130.5,
+   "stop": 118.5,
+   "target": 168.52,
+   "lastPrice": 125.05999755859375,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "PYPL",
+   "section": "rsi",
+   "signal": "Caution",
+   "flaggedDate": "2026-07-16",
+   "flaggedPrice": 56.72999954223633,
+   "entryLow": 56,
+   "entryHigh": 57.5,
+   "stop": 60,
+   "target": 52.9,
+   "lastPrice": 56.72999954223633,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "AAPL",
+   "section": "rsi",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-16",
+   "flaggedPrice": 333.260009765625,
+   "entryLow": 330,
+   "entryHigh": 334,
+   "stop": 340,
+   "target": 315,
+   "lastPrice": 333.260009765625,
+   "lastUpdated": "2026-07-16",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "ORCL",
+   "section": "rsi",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-16",
+   "flaggedPrice": 124.20999908447266,
+   "entryLow": 123.5,
+   "entryHigh": 126,
+   "stop": 118.5,
+   "target": 134,
+   "lastPrice": 124.20999908447266,
+   "lastUpdated": "2026-07-16",
    "daysTracked": 0
   }
  ],
@@ -1040,6 +1026,116 @@
    "outcome": "target_hit",
    "returnPct": 16.52,
    "daysHeld": 4
+  },
+  {
+   "ticker": "AAPL",
+   "section": "longterm",
+   "signal": "Bullish",
+   "flaggedDate": "2026-07-02",
+   "closedDate": "2026-07-16",
+   "outcome": "target_hit",
+   "returnPct": 7.98,
+   "daysHeld": 12
+  },
+  {
+   "ticker": "TEM",
+   "section": "sma150",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-08",
+   "closedDate": "2026-07-16",
+   "outcome": "stopped_out",
+   "returnPct": -6.43,
+   "daysHeld": 8
+  },
+  {
+   "ticker": "DELL",
+   "section": "longterm",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-08",
+   "closedDate": "2026-07-16",
+   "outcome": "stopped_out",
+   "returnPct": -9.4,
+   "daysHeld": 8
+  },
+  {
+   "ticker": "TEM",
+   "section": "sma200",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-09",
+   "closedDate": "2026-07-16",
+   "outcome": "stopped_out",
+   "returnPct": -12.86,
+   "daysHeld": 7
+  },
+  {
+   "ticker": "AVGO",
+   "section": "sma200",
+   "signal": "Bullish",
+   "flaggedDate": "2026-07-12",
+   "closedDate": "2026-07-16",
+   "outcome": "stopped_out",
+   "returnPct": -6.38,
+   "daysHeld": 6
+  },
+  {
+   "ticker": "ORCL",
+   "section": "rsi",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-13",
+   "closedDate": "2026-07-16",
+   "outcome": "stopped_out",
+   "returnPct": -5.57,
+   "daysHeld": 5
+  },
+  {
+   "ticker": "IONQ",
+   "section": "rsi",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-13",
+   "closedDate": "2026-07-16",
+   "outcome": "stopped_out",
+   "returnPct": -9.72,
+   "daysHeld": 5
+  },
+  {
+   "ticker": "RKLB",
+   "section": "sma200",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-14",
+   "closedDate": "2026-07-16",
+   "outcome": "stopped_out",
+   "returnPct": -14.54,
+   "daysHeld": 3
+  },
+  {
+   "ticker": "RCAT",
+   "section": "patterns",
+   "signal": "Bullish",
+   "flaggedDate": "2026-07-14",
+   "closedDate": "2026-07-16",
+   "outcome": "stopped_out",
+   "returnPct": -12.74,
+   "daysHeld": 3
+  },
+  {
+   "ticker": "LUNR",
+   "section": "rsi",
+   "signal": "Forming",
+   "flaggedDate": "2026-07-14",
+   "closedDate": "2026-07-16",
+   "outcome": "stopped_out",
+   "returnPct": -9.86,
+   "daysHeld": 3
+  },
+  {
+   "ticker": "PYPL",
+   "section": "rsi",
+   "signal": "Caution",
+   "flaggedDate": "2026-07-15",
+   "closedDate": "2026-07-16",
+   "outcome": "target_hit",
+   "returnPct": 2.18,
+   "daysHeld": 1
   }
  ]
 }
