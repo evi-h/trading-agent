@@ -11,9 +11,9 @@
    "entryHigh": 92,
    "stop": 84.5,
    "target": 97.8,
-   "lastPrice": 86.0199966430664,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 27
+   "lastPrice": 87.83000183105469,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 28
   },
   {
    "ticker": "XBI",
@@ -25,9 +25,9 @@
    "entryHigh": 153,
    "stop": 146,
    "target": 165,
-   "lastPrice": 154.5,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 26
+   "lastPrice": 157.3699951171875,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 27
   },
   {
    "ticker": "OSCR",
@@ -39,9 +39,9 @@
    "entryHigh": 28.5,
    "stop": 25.5,
    "target": 33,
-   "lastPrice": 26.540000915527344,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 26
+   "lastPrice": 27.899999618530273,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 27
   },
   {
    "ticker": "BAC",
@@ -53,9 +53,9 @@
    "entryHigh": 59.5,
    "stop": 56.8,
    "target": 64,
-   "lastPrice": 63,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 22
+   "lastPrice": 63.16999816894531,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 23
   },
   {
    "ticker": "TTWO",
@@ -67,9 +67,9 @@
    "entryHigh": 238,
    "stop": 227.5,
    "target": 255,
-   "lastPrice": 232.47000122070312,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 18
+   "lastPrice": 246.5,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 19
   },
   {
    "ticker": "BAC",
@@ -81,9 +81,9 @@
    "entryHigh": 61.2,
    "stop": 57.4,
    "target": 65,
-   "lastPrice": 63,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 18
+   "lastPrice": 63.16999816894531,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 19
   },
   {
    "ticker": "PYPL",
@@ -95,9 +95,9 @@
    "entryHigh": 54.5,
    "stop": 51.5,
    "target": 62,
-   "lastPrice": 59.779998779296875,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 16
+   "lastPrice": 59.06999969482422,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 17
   },
   {
    "ticker": "PYPL",
@@ -109,9 +109,9 @@
    "entryHigh": 52,
    "stop": 47.5,
    "target": 62,
-   "lastPrice": 59.779998779296875,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 16
+   "lastPrice": 59.06999969482422,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 17
   },
   {
    "ticker": "XIC.TO",
@@ -137,9 +137,9 @@
    "entryHigh": 402,
    "stop": 369,
    "target": 470,
-   "lastPrice": 418.20001220703125,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 14
+   "lastPrice": 420.0400085449219,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 15
   },
   {
    "ticker": "NFLX",
@@ -151,9 +151,9 @@
    "entryHigh": 68.5,
    "stop": 64.5,
    "target": 75,
-   "lastPrice": 73.69000244140625,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 13
+   "lastPrice": 74.13999938964844,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 14
   },
   {
    "ticker": "FTNT",
@@ -165,9 +165,9 @@
    "entryHigh": 160,
    "stop": 149.5,
    "target": 170,
-   "lastPrice": 160.11000061035156,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 12
+   "lastPrice": 159.63999938964844,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 13
   },
   {
    "ticker": "LMT",
@@ -179,9 +179,9 @@
    "entryHigh": 572,
    "stop": 543,
    "target": 620,
-   "lastPrice": 582.8499755859375,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 10
+   "lastPrice": 587.9500122070312,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 11
   },
   {
    "ticker": "TTWO",
@@ -193,9 +193,9 @@
    "entryHigh": 232,
    "stop": 222,
    "target": 250,
-   "lastPrice": 232.47000122070312,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 10
+   "lastPrice": 246.5,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 11
   },
   {
    "ticker": "LMT",
@@ -207,9 +207,9 @@
    "entryHigh": 572,
    "stop": 543,
    "target": 620,
-   "lastPrice": 582.8499755859375,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 10
+   "lastPrice": 587.9500122070312,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 11
   },
   {
    "ticker": "LMT",
@@ -221,9 +221,9 @@
    "entryHigh": 565,
    "stop": 540,
    "target": 620,
-   "lastPrice": 582.8499755859375,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 10
+   "lastPrice": 587.9500122070312,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 11
   },
   {
    "ticker": "F",
@@ -235,9 +235,9 @@
    "entryHigh": 14.35,
    "stop": 13.3,
    "target": 15.6,
-   "lastPrice": 13.789999961853027,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 10
+   "lastPrice": 13.979999542236328,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 11
   },
   {
    "ticker": "TSLA",
@@ -249,9 +249,9 @@
    "entryHigh": 324,
    "stop": 296,
    "target": 360,
-   "lastPrice": 319.5299987792969,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 10
+   "lastPrice": 328.5799865722656,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 11
   },
   {
    "ticker": "MMM",
@@ -263,9 +263,9 @@
    "entryHigh": 173,
    "stop": 162,
    "target": 184,
-   "lastPrice": 180.7100067138672,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 9
+   "lastPrice": 182.89999389648438,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 10
   },
   {
    "ticker": "LMT",
@@ -277,9 +277,9 @@
    "entryHigh": 575,
    "stop": 555,
    "target": 640,
-   "lastPrice": 582.8499755859375,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 9
+   "lastPrice": 587.9500122070312,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 10
   },
   {
    "ticker": "KO",
@@ -291,9 +291,9 @@
    "entryHigh": 84.5,
    "stop": 80.9,
    "target": 91.5,
-   "lastPrice": 86.8499984741211,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 8
+   "lastPrice": 87.05000305175781,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 9
   },
   {
    "ticker": "SONY",
@@ -305,9 +305,9 @@
    "entryHigh": 22.9,
    "stop": 21.7,
    "target": 24.5,
-   "lastPrice": 23.100000381469727,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 7
+   "lastPrice": 23.459999084472656,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 8
   },
   {
    "ticker": "UPS",
@@ -319,9 +319,9 @@
    "entryHigh": 106.5,
    "stop": 101.5,
    "target": 112,
-   "lastPrice": 103.19999694824219,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 7
+   "lastPrice": 104.5,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 8
   },
   {
    "ticker": "LMT",
@@ -333,9 +333,9 @@
    "entryHigh": 584,
    "stop": 539,
    "target": 625,
-   "lastPrice": 582.8499755859375,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 7
+   "lastPrice": 587.9500122070312,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 8
   },
   {
    "ticker": "TTWO",
@@ -347,9 +347,9 @@
    "entryHigh": 248,
    "stop": 232,
    "target": 266,
-   "lastPrice": 232.47000122070312,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 6
+   "lastPrice": 246.5,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 7
   },
   {
    "ticker": "PYPL",
@@ -361,9 +361,9 @@
    "entryHigh": 54,
    "stop": 51.5,
    "target": 60,
-   "lastPrice": 59.779998779296875,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 5
+   "lastPrice": 59.06999969482422,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 6
   },
   {
    "ticker": "GOOG",
@@ -375,9 +375,9 @@
    "entryHigh": 358,
    "stop": 337,
    "target": 385,
-   "lastPrice": 356.6199951171875,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 4
+   "lastPrice": 353.4700012207031,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 5
   },
   {
    "ticker": "NVDA",
@@ -389,9 +389,9 @@
    "entryHigh": 202.5,
    "stop": 192.5,
    "target": 228,
-   "lastPrice": 218.99000549316406,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 4
+   "lastPrice": 223.9600067138672,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 5
   },
   {
    "ticker": "SONY",
@@ -403,9 +403,9 @@
    "entryHigh": 23.8,
    "stop": 22.3,
    "target": 25.6,
-   "lastPrice": 23.100000381469727,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 4
+   "lastPrice": 23.459999084472656,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 5
   },
   {
    "ticker": "AXP",
@@ -417,9 +417,9 @@
    "entryHigh": 343,
    "stop": 331,
    "target": 358,
-   "lastPrice": 342.6000061035156,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 4
+   "lastPrice": 340.9100036621094,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 5
   },
   {
    "ticker": "AMZN",
@@ -431,23 +431,9 @@
    "entryHigh": 273,
    "stop": 254,
    "target": 295,
-   "lastPrice": 272.260009765625,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 4
-  },
-  {
-   "ticker": "QCOM",
-   "section": "rsi",
-   "signal": "Forming",
-   "flaggedDate": "2026-08-02",
-   "flaggedPrice": 147.61000061035156,
-   "entryLow": 147,
-   "entryHigh": 150,
-   "stop": 140.5,
-   "target": 163,
-   "lastPrice": 160.38999938964844,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 4
+   "lastPrice": 274.4800109863281,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 5
   },
   {
    "ticker": "RBLX",
@@ -459,9 +445,9 @@
    "entryHigh": 36,
    "stop": 33.8,
    "target": 42,
-   "lastPrice": 36.040000915527344,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 4
+   "lastPrice": 37.790000915527344,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 5
   },
   {
    "ticker": "HOOD",
@@ -473,9 +459,9 @@
    "entryHigh": 92,
    "stop": 85,
    "target": 100,
-   "lastPrice": 90.70999908447266,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 3
+   "lastPrice": 93.29000091552734,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 4
   },
   {
    "ticker": "UPS",
@@ -487,9 +473,9 @@
    "entryHigh": 108.5,
    "stop": 102.8,
    "target": 116,
-   "lastPrice": 103.19999694824219,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 3
+   "lastPrice": 104.5,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 4
   },
   {
    "ticker": "VRT",
@@ -501,9 +487,9 @@
    "entryHigh": 271,
    "stop": 246,
    "target": 298,
-   "lastPrice": 275.1700134277344,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 3
+   "lastPrice": 272.3999938964844,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 4
   },
   {
    "ticker": "WEN",
@@ -515,9 +501,9 @@
    "entryHigh": 7.78,
    "stop": 7.2,
    "target": 8.4,
-   "lastPrice": 7.389999866485596,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 3
+   "lastPrice": 7.690000057220459,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 4
   },
   {
    "ticker": "CRWD",
@@ -529,23 +515,9 @@
    "entryHigh": 204.5,
    "stop": 186,
    "target": 225,
-   "lastPrice": 207.38999938964844,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 3
-  },
-  {
-   "ticker": "NBIS",
-   "section": "longterm",
-   "signal": "Forming",
-   "flaggedDate": "2026-08-03",
-   "flaggedPrice": 212.5800018310547,
-   "entryLow": 208,
-   "entryHigh": 214,
-   "stop": 188,
-   "target": 250,
-   "lastPrice": 189.8800048828125,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 3
+   "lastPrice": 214.4199981689453,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 4
   },
   {
    "ticker": "MSFT",
@@ -557,9 +529,9 @@
    "entryHigh": 495,
    "stop": 462,
    "target": 520,
-   "lastPrice": 499.8599853515625,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 3
+   "lastPrice": 499.989990234375,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 4
   },
   {
    "ticker": "AMZN",
@@ -571,9 +543,9 @@
    "entryHigh": 287.2,
    "stop": 272,
    "target": 300,
-   "lastPrice": 272.260009765625,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 3
+   "lastPrice": 274.4800109863281,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 4
   },
   {
    "ticker": "CRM",
@@ -585,9 +557,9 @@
    "entryHigh": 193,
    "stop": 183.5,
    "target": 205,
-   "lastPrice": 186.77000427246094,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 2
+   "lastPrice": 192.74000549316406,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 3
   },
   {
    "ticker": "WEN",
@@ -599,9 +571,9 @@
    "entryHigh": 7.8,
    "stop": 7.35,
    "target": 8.2,
-   "lastPrice": 7.389999866485596,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 2
+   "lastPrice": 7.690000057220459,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 3
   },
   {
    "ticker": "NVDA",
@@ -613,9 +585,9 @@
    "entryHigh": 213.5,
    "stop": 199.5,
    "target": 236,
-   "lastPrice": 218.99000549316406,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 2
+   "lastPrice": 223.9600067138672,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 3
   },
   {
    "ticker": "AVGO",
@@ -627,9 +599,9 @@
    "entryHigh": 421,
    "stop": 396,
    "target": 475,
-   "lastPrice": 420.56500244140625,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 2
+   "lastPrice": 427.760009765625,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 3
   },
   {
    "ticker": "GEV",
@@ -641,9 +613,9 @@
    "entryHigh": 1030,
    "stop": 975,
    "target": 1120,
-   "lastPrice": 1000.2999877929688,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 1
+   "lastPrice": 990.3200073242188,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 2
   },
   {
    "ticker": "PLTR",
@@ -655,9 +627,9 @@
    "entryHigh": 160,
    "stop": 150.5,
    "target": 178,
-   "lastPrice": 155.9199981689453,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 1
+   "lastPrice": 172.00999450683594,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 2
   },
   {
    "ticker": "VRT",
@@ -669,9 +641,9 @@
    "entryHigh": 280,
    "stop": 268,
    "target": 300,
-   "lastPrice": 275.1700134277344,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 1
+   "lastPrice": 272.3999938964844,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 2
   },
   {
    "ticker": "SHOP",
@@ -683,9 +655,9 @@
    "entryHigh": 146,
    "stop": 131.5,
    "target": 165,
-   "lastPrice": 147.44000244140625,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 1
+   "lastPrice": 151.57000732421875,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 2
   },
   {
    "ticker": "PLTR",
@@ -697,9 +669,9 @@
    "entryHigh": 156,
    "stop": 142.5,
    "target": 180,
-   "lastPrice": 155.9199981689453,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 1
+   "lastPrice": 172.00999450683594,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 2
   },
   {
    "ticker": "F",
@@ -711,9 +683,9 @@
    "entryHigh": 13.9,
    "stop": 13.15,
    "target": 15.1,
-   "lastPrice": 13.789999961853027,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 0
+   "lastPrice": 13.979999542236328,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 1
   },
   {
    "ticker": "IGV",
@@ -725,9 +697,9 @@
    "entryHigh": 100,
    "stop": 93.5,
    "target": 110,
-   "lastPrice": 99.41999816894531,
-   "lastUpdated": "2026-08-06",
-   "daysTracked": 0
+   "lastPrice": 102.69000244140625,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 1
   },
   {
    "ticker": "XBI",
@@ -739,8 +711,134 @@
    "entryHigh": 156,
    "stop": 146,
    "target": 165,
-   "lastPrice": 154.5,
-   "lastUpdated": "2026-08-06",
+   "lastPrice": 157.3699951171875,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 1
+  },
+  {
+   "ticker": "UBER",
+   "section": "sma150",
+   "signal": "Bullish",
+   "flaggedDate": "2026-08-09",
+   "flaggedPrice": 75.0199966430664,
+   "entryLow": 74.2,
+   "entryHigh": 75.6,
+   "stop": 72.3,
+   "target": 82,
+   "lastPrice": 75.0199966430664,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "SMCI",
+   "section": "sma150",
+   "signal": "Forming",
+   "flaggedDate": "2026-08-09",
+   "flaggedPrice": 31.1299991607666,
+   "entryLow": 30.8,
+   "entryHigh": 31.5,
+   "stop": 29.4,
+   "target": 35,
+   "lastPrice": 31.1299991607666,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "RKLB",
+   "section": "sma200",
+   "signal": "Bullish",
+   "flaggedDate": "2026-08-09",
+   "flaggedPrice": 82.83000183105469,
+   "entryLow": 80.5,
+   "entryHigh": 83,
+   "stop": 76.5,
+   "target": 95,
+   "lastPrice": 82.83000183105469,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "QCOM",
+   "section": "sma200",
+   "signal": "Forming",
+   "flaggedDate": "2026-08-09",
+   "flaggedPrice": 167.86000061035156,
+   "entryLow": 167,
+   "entryHigh": 170,
+   "stop": 161.5,
+   "target": 180,
+   "lastPrice": 167.86000061035156,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "IONQ",
+   "section": "sma200",
+   "signal": "Caution",
+   "flaggedDate": "2026-08-09",
+   "flaggedPrice": 44.43000030517578,
+   "entryLow": 44,
+   "entryHigh": 45.8,
+   "stop": 41.8,
+   "target": 51,
+   "lastPrice": 44.43000030517578,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "SONY",
+   "section": "patterns",
+   "signal": "Forming",
+   "flaggedDate": "2026-08-09",
+   "flaggedPrice": 23.459999084472656,
+   "entryLow": 23.4,
+   "entryHigh": 23.7,
+   "stop": 22.55,
+   "target": 26.32,
+   "lastPrice": 23.459999084472656,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "COIN",
+   "section": "patterns",
+   "signal": "Bullish",
+   "flaggedDate": "2026-08-09",
+   "flaggedPrice": 153.60000610351562,
+   "entryLow": 152,
+   "entryHigh": 156,
+   "stop": 143,
+   "target": 180,
+   "lastPrice": 153.60000610351562,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "PLTR",
+   "section": "rsi",
+   "signal": "Caution",
+   "flaggedDate": "2026-08-09",
+   "flaggedPrice": 172.00999450683594,
+   "entryLow": 170,
+   "entryHigh": 174,
+   "stop": 183,
+   "target": 155,
+   "lastPrice": 172.00999450683594,
+   "lastUpdated": "2026-08-09",
+   "daysTracked": 0
+  },
+  {
+   "ticker": "AEM.TO",
+   "section": "rsi",
+   "signal": "Forming",
+   "flaggedDate": "2026-08-09",
+   "flaggedPrice": 249.3699951171875,
+   "entryLow": 247,
+   "entryHigh": 252,
+   "stop": 262,
+   "target": 232,
+   "lastPrice": 249.3699951171875,
+   "lastUpdated": "2026-08-09",
    "daysTracked": 0
   }
  ],
@@ -2164,6 +2262,26 @@
    "outcome": "target_hit",
    "returnPct": -0.75,
    "daysHeld": 1
+  },
+  {
+   "ticker": "QCOM",
+   "section": "rsi",
+   "signal": "Forming",
+   "flaggedDate": "2026-08-02",
+   "closedDate": "2026-08-09",
+   "outcome": "target_hit",
+   "returnPct": 13.72,
+   "daysHeld": 5
+  },
+  {
+   "ticker": "NBIS",
+   "section": "longterm",
+   "signal": "Forming",
+   "flaggedDate": "2026-08-03",
+   "closedDate": "2026-08-09",
+   "outcome": "stopped_out",
+   "returnPct": -11.58,
+   "daysHeld": 4
   }
  ]
 }
